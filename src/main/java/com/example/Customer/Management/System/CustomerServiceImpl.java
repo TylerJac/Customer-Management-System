@@ -1,7 +1,6 @@
 package com.example.Customer.Management.System;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +16,12 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Autowired
-    public CustomerServiceImpl(@Qualifier("notificationServiceImpl") NotificationService notificationService) {
+    public CustomerServiceImpl(NotificationService notificationService) {
         this.notificationService = notificationService;
+    }
+
+    public CustomerServiceImpl() {
+        this.notificationService = new NotificationServiceImpl();
     }
 
 

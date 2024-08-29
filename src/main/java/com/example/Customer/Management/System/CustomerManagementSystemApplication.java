@@ -1,16 +1,15 @@
 package com.example.Customer.Management.System;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class CustomerManagementSystemApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-		CustomerService customerService = context.getBean(CustomerService.class);
-
+		SpringApplication.run(CustomerManagementSystemApplication.class, args);
+		System.out.println("Customer Management System started...");
+		CustomerService customerService = new CustomerServiceImpl();
 		Customer newCustomer = new Customer();
 		newCustomer.setId(1L);
 		newCustomer.setName("John Doe");
@@ -35,4 +34,3 @@ public class CustomerManagementSystemApplication {
 	}
 
 }
-

@@ -11,7 +11,7 @@ public class AppConfig {
 
     @Bean
     public CustomerService customerService(@Qualifier("notificationServiceImpl") NotificationService notificationService) {
-        return new CustomerServiceImpl(notificationService);
+        return new CustomerServiceImpl();
     }
     
 
